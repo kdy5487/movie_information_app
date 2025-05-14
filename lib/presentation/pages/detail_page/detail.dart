@@ -25,6 +25,19 @@ class DetailPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Hero(
+                  tag: 'movie_${movieId}',
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.network(
+                      'https://image.tmdb.org/t/p/w500${detail.productionCompanyLogos.first}',
+                      height: 300,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
                 Text(
                   detail.title,
                   style: const TextStyle(
@@ -37,9 +50,9 @@ class DetailPage extends StatelessWidget {
                 Text('런타임: ${detail.runtime}분'),
                 Text('개봉일: ${detail.releaseDate.toLocal()}'),
                 const SizedBox(height: 16),
-                Text(
+                const Text(
                   '줄거리',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(detail.overview),
               ],

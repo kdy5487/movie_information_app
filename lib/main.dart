@@ -11,6 +11,7 @@ Future<void> main() async {
 
   final dataSource = MovieDataSourceImpl();
   final repository = MovieRepositoryImpl(dataSource: dataSource);
+  print('API KEY: ${dotenv.env['TMDB_API_KEY']}');
 
   runApp(
     MultiProvider(

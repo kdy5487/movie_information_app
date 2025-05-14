@@ -1,5 +1,6 @@
 // data/datasource/movie_data_source_impl.dart
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:movie_information_app/%08core/env.dart';
 import 'package:movie_information_app/data/dto/movie_detail.dto.dart';
@@ -13,13 +14,18 @@ class MovieDataSourceImpl implements MovieDataSource {
     String endpoint,
     T Function(Map<String, dynamic>) fromJson,
   ) async {
+    final token = dotenv.env['TMDB_API_KEY']; //v4
     final response = await http.get(
-      Uri.parse('$_baseUrl/$endpoint'),
+      Uri.parse('https://api.themoviedb.org/3/movie/now_playing'),
       headers: {
-        'Authorization': 'Bearer ${Env.tmdbToken}',
+        'Authorization': 'Bearer $token',
         'Content-Type': 'application/json;charset=utf-8',
       },
     );
+    //무한로딩 원인 찾기
+    print('응답 코드: ${response.statusCode}');
+    print('응답 내용: ${response.body}');
+
     if (response.statusCode == 200) {
       return fromJson(json.decode(response.body));
     }
