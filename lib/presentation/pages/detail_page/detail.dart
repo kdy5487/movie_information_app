@@ -29,7 +29,7 @@ class DetailPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               child: Image.network(
                 'https://image.tmdb.org/t/p/w500$posterPath',
-                height: 300,
+                height: 600,
                 width: double.infinity,
                 fit: BoxFit.cover,
                 loadingBuilder: (context, child, loadingProgress) {

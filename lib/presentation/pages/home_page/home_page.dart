@@ -172,7 +172,7 @@ class HomePage extends StatelessWidget {
                         child: Text(
                           '${index + 1}',
                           style: const TextStyle(
-                            fontSize: 28,
+                            fontSize: 58,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                             shadows: [
