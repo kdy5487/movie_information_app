@@ -14,6 +14,8 @@ class HomePage extends StatelessWidget {
   /// API 연동 전 더미 이미지
   final dummyImage = 'https://picsum.photos/400/600';
 
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,14 +82,16 @@ class HomePage extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 180,
+          height: 180, // 리스트 뷰 높이 180 요구사항
+          width: double.infinity,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 20, //이미지 20개씩 출력 요구사항
             itemBuilder: (context, index) {
               return Container(
-                width: 180, // 리스트 뷰 높이 180 요구사항
-                margin: EdgeInsets.symmetric(horizontal: 8),
+                width: 180,
+                padding: const EdgeInsets.all(8),
+
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.network(dummyImage, fit: BoxFit.cover),
