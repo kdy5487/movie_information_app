@@ -1,5 +1,6 @@
 import 'package:movie_information_app/data/dto/movie_dto.dart';
 
+///TMDB API의 전체 항목을 포함하는 응답 구조
 class MovieResponseDto {
   final int page;
   final List<MovieDto> results;

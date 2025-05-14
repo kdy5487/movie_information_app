@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:movie_information_app/data/data_sourece/moive_data_soure_impl.dart';
-import 'package:movie_information_app/data/repository/movie_repository.dart';
+import 'package:movie_information_app/data/repository/movie_repository_impl.dart';
 import 'package:movie_information_app/presentation/pages/home_page/home_page.dart';
 import 'package:movie_information_app/presentation/pages/home_page/home_view_model.dart';
 import 'package:provider/provider.dart';
@@ -11,15 +13,15 @@ Future<void> main() async {
 
   final dataSource = MovieDataSourceImpl();
   final repository = MovieRepositoryImpl(dataSource: dataSource);
-  print('API KEY: ${dotenv.env['TMDB_API_KEY']}');
+  // API 키 정상 로드 확인용
+  log('API KEY: ${dotenv.env['TMDB_API_KEY']}');
 
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => HomeViewModel(repository)..fetchAll(),
+          create: (_) => HomeViewModel(repository)..fetchAll(), // 앱 시작 시 데이터 로딩
         ),
-        // 필요시 DetailViewModel도 Provider로 추가 가능
       ],
       child: const MyApp(),
     ),

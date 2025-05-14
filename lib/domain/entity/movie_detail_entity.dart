@@ -1,4 +1,4 @@
-// domain/entity/movie_detail.dart
+/// 영화 상세 정보를 나타내는 도메인 모델
 class MovieDetail {
   final int budget;
   final List<String> genres;

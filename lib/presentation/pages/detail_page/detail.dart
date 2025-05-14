@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:movie_information_app/presentation/pages/detail_page/detail_view_model.dart';
 import 'package:provider/provider.dart';
 
+//상세 정보
 class DetailPage extends StatelessWidget {
-  final int movieId;
-  final String posterPath;
-  final String heroTag;
+  final int movieId; // 영화 ID
+  final String posterPath; // 포스터 경로
+  final String heroTag; // Hero 고유 tag
 
   const DetailPage({
     super.key,
@@ -53,7 +54,7 @@ class DetailPage extends StatelessWidget {
               ),
             ),
           ),
-          // 상세 정보는 비동기로 불러옴
+          // 상세 정보 로딩 및 표시 영역
           Expanded(
             child: FutureBuilder(
               future: viewModel.fetchMovieDetail(movieId),
@@ -63,7 +64,7 @@ class DetailPage extends StatelessWidget {
                 if (detail == null) {
                   return const Center(child: CircularProgressIndicator());
                 }
-
+                // 상세 내용 렌더링
                 return SingleChildScrollView(
                   padding: const EdgeInsets.all(16),
                   child: Column(

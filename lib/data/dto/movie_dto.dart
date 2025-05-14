@@ -1,3 +1,4 @@
+///홈 화면에서 단일 영화 항목을 표현하는 DTO.
 class MovieDto {
   final bool adult;
   final String backdropPath;
