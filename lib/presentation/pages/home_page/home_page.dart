@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_information_app/data/data_sourece/moive_data_soure_impl.dart';
-import 'package:movie_information_app/data/repository/movie_repository.dart';
+import 'package:movie_information_app/data/repository/movie_repository_impl.dart';
 import 'package:movie_information_app/presentation/pages/detail_page/detail.dart';
 import 'package:provider/provider.dart';
 import 'package:movie_information_app/presentation/pages/detail_page/detail_view_model.dart';

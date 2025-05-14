@@ -1,3 +1,4 @@
+///영화 상세 정보
 class MovieDetailDto {
   final bool adult;
   final String backdropPath;

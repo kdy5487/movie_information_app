@@ -8,7 +8,7 @@ void main() {
   });
 
   test('TMDB 인기 영화 요청 테스트', () async {
-    final token = dotenv.env['TMDB_BEARER_TOKEN'];
+    final token = dotenv.env['TMDB_API_KEY'];
 
     final response = await http.get(
       Uri.parse(

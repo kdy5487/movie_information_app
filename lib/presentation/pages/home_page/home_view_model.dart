@@ -12,11 +12,12 @@ class HomeViewModel extends ChangeNotifier {
   List<Movie>? topRated;
   List<Movie>? upcoming;
 
+  // 모든 카테고리의 영화 데이터를 비동기로 가져옴
   Future<void> fetchAll() async {
     nowPlaying = await _repository.fetchNowPlayingMovies();
     popular = await _repository.fetchPopularMovies();
     topRated = await _repository.fetchTopRatedMovies();
     upcoming = await _repository.fetchUpcomingMovies();
-    notifyListeners();
+    notifyListeners(); // UI 갱신 트리거
   }
 }
