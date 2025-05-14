@@ -21,8 +21,10 @@ TMDB API를 기반으로 구현된 Flutter 영화 정보 앱입니다.
 
 
 ---
+
 ## 디렉토리 구조
 
+```
 lib/
 ├── data/
 │   ├── datasource/
@@ -36,3 +38,4 @@ lib/
 ├── presentation/
 │   ├── pages/
 │   └── widgets/
+```
